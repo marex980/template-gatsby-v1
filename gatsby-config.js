@@ -1,42 +1,31 @@
 /**
- * @type {import('gatsby').GatsbyConfig}
+ * Configure your Gatsby site with this file.
+ *
+ * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
+
 module.exports = {
-  siteMetadata: {
-    title: `template-blog`,
-    siteUrl: `https://www.yourdomain.tld`,
-  },
+  /* Your site config here */
   plugins: [
-    'gatsby-plugin-image',
-    'gatsby-plugin-sitemap',
-    // 'gatsby-plugin-mdx',
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
-    'gatsby-remark-images',
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     `gatsby-plugin-styled-components`,
+
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: 'images',
-        path: './src/images/',
+        name: `assets`,
+        path: `${__dirname}/src/assets`,
       },
-      __key: 'images',
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: 'pages',
-        path: './src/pages/',
+        name: `posts`,
+        path: `${__dirname}/src/posts`,
       },
-      __key: 'pages',
     },
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     name: `posts`,
-    //     path: `${__dirname}/src/posts`,
-    //   },
-    // },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -44,4 +33,4 @@ module.exports = {
       },
     },
   ],
-};
+}
